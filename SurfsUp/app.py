@@ -38,21 +38,32 @@ app = Flask(__name__)
 #################################################
 # Flask Routes
 #################################################
+baseRoute = "/api/v1.0"
+route_percip = f"{baseRoute}/percipitation"
+route_stations = f"{baseRoute}/stations"
+route_tobs = f"{baseRoute}/tobs"
+route_startstop = f"{baseRoute}/<start>/<stop>"
+
 @app.route("/")
 def index():
     """List all available routes"""
     return (
         f"Available Routes:<br/>"
-        
+        f"{route_percip}<br/>"
+        f"{route_stations}<br/>"
+        f"{route_tobs}<br/>"
+        f"{route_startstop}"
     )
 
-@app.route("/api/v1.0/percipitation")
+@app.route(route_percip)
+def percip():
+    
 
-@app.route("/api/v1.0/stations")
+@app.route(route_stations)
 
-@app.route("/api/v1.0/tobs")
+@app.route(route_tobs)
 
-@app.route("/api/v1.0/<start>/<stop>")
+@app.route(route_startstop)
 
 
 
